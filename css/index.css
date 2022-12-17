@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding: 30px 20px;
+}
+
+main h3 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+main form {
+  width: 100%;
+  height: 200px;
+  margin-top: 50px;
+}
+
+main form .country {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+main form .country label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+main form .country select {
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 0 10px;
+}
+
+main form .country select:focus {
+  outline: none;
+}
+
+main form .country select option {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+main form #inputSection {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-bottom: 20px;
+}
+
+main form #inputSection div {
+  width: 10%;
+  margin-right: 5px;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+
+main form #inputSection .flag img {
+  width: 100%;
+  height: 100%;
+}
+
+main form #inputSection .code {
+  width: 12%;
+  background-color: #173138;
+}
+
+main form #inputSection input {
+  width: 80%;
+  height: 80%;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 10px;
+  letter-spacing: 2px;
+}
+
+main form #inputSection input:focus {
+  outline: none;
+}
+
+main form .err {
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+main form button {
+  width: 90%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #173138;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  color: white;
+  margin: 0 auto;
+}

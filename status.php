@@ -1,4 +1,11 @@
 <?php require "classes/Dbh.class.php" ?>
+<!-- Redirect if user is not loggedIn -->
+<?php
+if (!isset($_COOKIE['loggedUser'])) {
+	header('Location: ./');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +14,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Status</title>
-	<link rel="stylesheet" href="./css/styles.css" />
+	<link rel="stylesheet" href="./css/status.css" />
 	<script src="https://kit.fontawesome.com/f6e3b67683.js" crossorigin="anonymous"></script>
 </head>
 
@@ -90,10 +97,9 @@
 				<p class="statusInfo">Your status will disappear after 24 hours</p>
 			</div>
 			<div class="statuses"></div>
-			<!-- <div class="topSection"></div> -->
 		</section>
 	</main>
-	<script src="./app.js" defer type="module"></script>
+	<script src="./js/status.js" defer type="module"></script>
 </body>
 
 </html>

@@ -14,8 +14,6 @@ use Twilio\Rest\Client;
 $sid = $_ENV['sid'];
 $token = $_ENV['token'];
 
-
-
 function sendSMS($body, $number) {
   global $sid, $token;
   $twilio = new Client($sid, $token);
@@ -32,7 +30,7 @@ function sendSMS($body, $number) {
     if ($message->sid) {
       return "success";
     } else {
-      return "An error occurred";
+      return "Message was not sent";
     }
   } catch (Error $e) {
     return 'An error occured ';
