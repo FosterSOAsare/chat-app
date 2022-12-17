@@ -1,4 +1,4 @@
-import { fetchLocalStorage, updateStatusNumber, statusView, createAllStatuses, fetchStatuses, clearStatusIndexes } from "./status.js";
+import { fetchLocalStorage, updateStatusNumber, statusView, createAllStatuses, fetchStatuses, clearStatusIndexes } from "./imports/status.js";
 
 let colors = ["red", "green", "pink", "indigo", "#678983", "#272822", "grey", "#439A97", "#2D033B", "#FF7000"];
 let fontFamilies = ["'Courier New', Courier, monospace", " 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", "'Times New Roman', Times, serif", "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif", "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"];
