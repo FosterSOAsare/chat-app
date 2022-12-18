@@ -4,6 +4,10 @@ require_once 'includes/functions.inc.php';
 if (!isset($_SESSION['code'])) {
   header('Location: ./');
 };
+
+if (isset($_COOKIE['loggedUser'])) {
+  header('Location: ./chat');
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">

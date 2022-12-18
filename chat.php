@@ -1,6 +1,6 @@
 <?php
 require_once "includes/functions.inc.php";
-var_dump($_COOKIE);
+statusRedirect();
 ?>
 
 <!DOCTYPE html>

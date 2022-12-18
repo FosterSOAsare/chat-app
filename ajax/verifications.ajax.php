@@ -63,5 +63,6 @@ if (isset($_POST['type']) && $_POST['type'] == 'verify') {
   $user->saveNewCookieValue($cookie);
 
   setcookie('loggedUser', $cookie, time() + 2592000, '/');
+  session_destroy();
   echo 'success';
 }
