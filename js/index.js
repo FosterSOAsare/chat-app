@@ -1,6 +1,6 @@
 // Fetching countries and setting up select field
 import { countries } from "./imports/country.js";
-import { postData } from "./imports/dataPost.js";
+import { PostData } from "./imports/dataPost.js";
 import { phoneVerification } from "./imports/verifications.js";
 setValues(countries[0].name);
 
@@ -68,13 +68,18 @@ function clearError() {
 			return;
 		}
 		let postString = `phone=${parseInt(phone)}&code=${code}&type=login&country=${country}`;
-		let res = postData("ajax/verifications.ajax.php", postString);
 
-		if (res !== "sucess") {
-			// Redirect to verification page
-			displayError(res);
-		}
+		let data = "";
+		let post = new PostData("ajax/verifications.ajax.php", postString);
+		post.sendRequest(function (response) {
+			data = response;
+			if (data === "success") {
+				window.location.href = "./verifications";
+			} else {
+				displayError(data);
+			}
+		});
 	});
 })();
 
-// console.log(postData("ajax/verifications.ajax.php", ""));
+(function () {})();

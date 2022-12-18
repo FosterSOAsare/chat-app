@@ -1,4 +1,5 @@
 <?php
+require_once "../includes/functions.inc.php";
 require_once '../sms.service.php';
 require_once '../classes/Dbh.class.php';
 require_once '../classes/models/Login.model.php';
@@ -16,8 +17,6 @@ if (isset($_POST['type']) && $_POST['type'] == 'login') {
     // Generate random code 
     $code = $login->generateCode();
 
-    // Save code for verifications
-    $_SESSION['code'] = $code;
 
     // Send SMS
     $sms = $login->sendSMS($code);
@@ -26,10 +25,9 @@ if (isset($_POST['type']) && $_POST['type'] == 'login') {
       return;
     }
     echo  'success';
+    // Save code for verifications
+    $_SESSION['code'] = $code;
   } catch (Error $e) {
     echo "An error occurred";
   }
-
-
-  // Return success 
 }

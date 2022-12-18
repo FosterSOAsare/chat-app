@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/functions.inc.php';
 if (isset($_SESSION['code'])) {
   header("Location: ./verifications");
 }
