@@ -8,27 +8,29 @@ require_once '../classes/views/Login.view.php';
 
 if (isset($_POST['type']) && $_POST['type'] == 'login') {
   $phone = htmlspecialchars($_POST['phone']);
-  $countryCode = htmlspecialchars($_POST['code']);
+  $code = htmlspecialchars($_POST['code']);
   $country = htmlspecialchars(($_POST['country']));
 
   try {
 
-    $login = new LoginController($phone, $country, $countryCode);
+    $login = new LoginController($phone, $country, $code);
     // Generate random code 
-    $code = $login->generateCode();
+    $token = $login->generateCode();
 
     // Send SMS
-    $sms = $login->sendSMS($code);
+    $sms = $login->sendSMS($token);
     if ($sms !== 'success') {
       echo $sms;
       return;
     }
-    echo 'success';
+
     // Save code for verifications
-    $_SESSION['code'] = $code;
+    $_SESSION['code'] = $token;
     $_SESSION['phone'] = $phone;
     $_SESSION['country'] = $country;
-    $_SESSION['countryCode'] = $countryCode;
+    $_SESSION['countryCode'] = $code;
+
+    echo  'success';
   } catch (Error $e) {
     echo "An error occurred";
   }
@@ -47,21 +49,7 @@ if (isset($_POST['type']) && $_POST['type'] == 'verify') {
   }
 
   // Check if user is registered or not 
-  $user = new LoginController($phone, $country, $countryCode);
+  $user = new LoginController($phone, $country, $code);
   $res = $user->checkRegistered();
-  if (!$res) {
-    // Save user data 
-    if (!$user->saveUserInfo()) {
-      echo "An error occurred";
-      return;
-    };
-  }
-
-  // Update cookie
-  $cookie = $user->generateCookie();
-
-  $user->saveNewCookieValue($cookie);
-
-  setcookie('loggedUser', $cookie, time() + 2592000, '/');
-  echo 'success';
+  echo $res;
 }

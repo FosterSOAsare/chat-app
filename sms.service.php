@@ -37,4 +37,4 @@ function sendSMS($body, $number) {
   }
 }
 
-// sendSMS("This is dead", "+233550529015");
+// sendSMS('This', '233550529015');

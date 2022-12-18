@@ -1,3 +1,8 @@
+<?php
+require_once "includes/functions.inc.php";
+var_dump($_COOKIE);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
