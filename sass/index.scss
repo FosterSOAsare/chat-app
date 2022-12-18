@@ -81,10 +81,7 @@ main {
 			}
 		}
 		.err {
-			color: red;
-			margin-top: -10px;
-			margin-bottom: 10px;
-			display: none;
+			@include err;
 		}
 		button {
 			width: 90%;
