@@ -9,9 +9,10 @@ class Login extends Dbh {
   }
 
   protected function insertUserData($phone, $country, $code) {
-    $sql = "INSERT INTO users(phone , country , code) VALUES (?,? , ?)";
+    $membership_date  = gmdate('Y-m-d H:i:s');
+    $sql = "INSERT INTO users(phone , country , code , membership_date) VALUES (?, ? , ? , ?)";
     $stmt = $this->connectDB()->prepare($sql);
-    return $stmt->execute([$phone, $country, $code]);
+    return $stmt->execute([$phone, $country, $code, $membership_date]);
   }
 
   protected function updateCookieValue($cookie, $phone) {
