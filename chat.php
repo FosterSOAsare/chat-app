@@ -14,6 +14,7 @@ statusRedirect();
 </head>
 
 <body>
+  <script src="./js/chat.js"></script>
 
 </body>
 

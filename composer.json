@@ -1,6 +1,8 @@
 {
-    "require": {
-        "twilio/sdk": "^6.44",
-        "vlucas/phpdotenv": "^5.5"
-    }
+	"require": {
+		"twilio/sdk": "^6.44",
+		"vlucas/phpdotenv": "^5.5",
+		"cboden/ratchet": "^0.4",
+		"phpmailer/phpmailer": "^6.6"
+	}
 }
