@@ -1,6 +1,6 @@
 @import "./imports/default";
 body {
-	background-color: red;
+	background-color: $background;
 }
 
 * {
@@ -17,10 +17,9 @@ i {
 }
 header {
 	width: 100%;
-	height: 70px;
+	height: 50px;
 	padding: 0 20px;
 	@include flex(space-between, center);
-	background-color: green;
 	.header__left,
 	.header__right {
 		width: 10%;
@@ -40,7 +39,6 @@ header {
 			width: 40%;
 			height: 40%;
 			@include flex(center, center);
-			background-color: white;
 		}
 	}
 }
@@ -49,8 +47,6 @@ main {
 	width: 100%;
 	height: calc(100vh - 70px);
 	background-color: $background;
-	// padding: 10px 20px;
-	padding-top: 10px;
 	#topSection {
 		width: 100%;
 		height: auto;
