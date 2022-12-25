@@ -6,3 +6,9 @@ function statusRedirect() {
     header('Location: ./');
   }
 }
+
+function redirectLoggedIn() {
+  if (isset($_COOKIE['loggedUser'])) {
+    header('Location: ./chat');
+  }
+}

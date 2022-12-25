@@ -14,7 +14,7 @@ statusRedirect();
 </head>
 
 <body>
-  <script src="./js/chat.js"></script>
+  <script src="./js/chat.js" type="module"></script>
 
 </body>
 
