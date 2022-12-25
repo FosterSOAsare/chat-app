@@ -1,6 +1,12 @@
 <?php
 require_once "includes/functions.inc.php";
+require_once "classes/Dbh.class.php";
+require_once "classes/models/User.model.php";
+require_once 'classes/controllers/User.controller.php';
 statusRedirect();
+$user = new UserController($_COOKIE['loggedUser']);
+$user->getUser();
+$loggedInfo = $user->loggedUser;
 ?>
 
 <!DOCTYPE html>
@@ -204,6 +210,11 @@ statusRedirect();
       </article>
     </section>
   </main>
+  <script>
+    function getUser() {
+      return <?php echo json_encode($loggedInfo) ?>;
+    }
+  </script>
   <script src="./js/chat.js" type="module"></script>
 
 </body>

@@ -2,8 +2,18 @@
 
 namespace MyApp;
 
+require_once 'classes/Dbh.class.php';
+require_once 'classes/models/User.model.php';
+require_once 'classes/controllers/User.controller.php';
+require_once 'classes/models/Chat.model.php';
+require_once 'classes/controllers/Chat.controller.php';
+
+
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
+use UserController;
+
+$user = new UserController();
 
 class MyWebSocketServer implements MessageComponentInterface {
   protected $clients;
@@ -20,20 +30,28 @@ class MyWebSocketServer implements MessageComponentInterface {
   }
 
   public function onMessage(ConnectionInterface $from, $msg) {
-    $numRecv = count($this->clients) - 1;
-    echo sprintf(
-      'Connection %d sending message "%s" to %d other connection%s' . "\n",
-      $from->resourceId,
-      $msg,
-      $numRecv,
-      $numRecv == 1 ? '' : 's'
-    );
+    $data = json_decode($msg);
+    global $user;
+    $user->setUserId($data->user);
+
+    if ($data->type === 'connected') {
+      // Set status
+      $res = $user->changeStatus('online');
+      if ($res) {
+        $data->status = 'online';
+      } else {
+        $data->status = 'offline';
+      }
+    }
+    if ($data->type === 'fetchChats') {
+    }
 
     foreach ($this->clients as $client) {
       if ($from !== $client) {
         // The sender is not the receiver, send to each client connected
-        $client->send($msg);
+        $client->send(json_encode($data));
       }
+      $client->send(json_encode($data));
     }
   }
 
